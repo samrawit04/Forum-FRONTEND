@@ -8,6 +8,7 @@ import "../Question/Question.css";
 
 const Question = ({ logout }) => {
   // declare state variable
+  // eslint-disable-next-line
   const [userData, setUserData] = useContext(UserContext);
   const [form, setForm] = useState({});
   const [quesionTitle, setTitle] = useState("");
@@ -30,6 +31,7 @@ const Question = ({ logout }) => {
   const asking = async () => {
     try {
       //sending the data
+      // eslint-disable-next-line
       const Res = await axios.post(
         `${process.env.REACT_APP_base_url}/api/question/`,
         {

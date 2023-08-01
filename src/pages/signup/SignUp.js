@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { UserContext } from "../../context/UserContext";
@@ -9,6 +9,7 @@ import hideicon from "../signup/hide.png";
 import viewicon from "../signup/view.png";
 const SignUp = () => {
   //importing global state from context
+  // eslint-disable-next-line
   const [userData, setUserData] = useContext(UserContext);
   const [showPassword, setShowPassword] = useState(false);
   const [password, setpassword] = useState("");
@@ -64,7 +65,7 @@ const SignUp = () => {
         // Fallback error message in case the response doesn't contain a specific error message
         setErrorMessage("An error occurred. Please try again later.");
       }
-      
+
       // console.log("problem " + error.response.data.msg);
       return error.response.data.msg;
     }

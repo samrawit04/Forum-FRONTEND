@@ -11,6 +11,7 @@ import "../Home/home.css";
 import usericon from "../Home/user (1).png";
 
 const Home = ({ logout }) => {
+  // eslint-disable-next-line
   const [userData, setUserData] = useContext(UserContext);
 
   const [questionItems, setquestionItems] = useState([]);
@@ -27,7 +28,8 @@ const Home = ({ logout }) => {
       const fetchedQuestions = await axios.get(
         `${process.env.REACT_APP_base_url}/api/question/all`
       );
-const response= console.log(fetchedQuestions.json)
+      // eslint-disable-next-line
+      const response = console.log(fetchedQuestions.json);
       const questions = fetchedQuestions.data.data;
       console.log(questions);
 

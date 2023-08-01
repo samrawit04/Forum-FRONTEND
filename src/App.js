@@ -22,54 +22,50 @@ const [isLoggedInChecked, setIsLoggedInChecked] = useState(false);
     const checkLoggedIn = async () => {
       // Your logic to check if the user is logged in
       // ...const checkLoggedIn = async () => {
-  
 
-    if (!token || token === null) {
-      //token not in localStorage then set auth token empty
-      // localStorage.setItem("auth-token", "");
-      // console.log("there is no token app js")
-    } 
+      if (!token || token === null) {
+        //token not in localStorage then set auth token empty
+        // localStorage.setItem("auth-token", "");
+        // console.log("there is no token app js")
+      } else {
+        // console.log("there is token in app js")
+        //if token exists in localStorage then use auth to verify token and get user info
+        const userRes = await axios.get(
+          `${process.env.REACT_APP_base_url}/api/users`,
+          {
+            headers: { "x-auth-token": token },
+          }
+        );
 
-    else {
-      // console.log("there is token in app js")
-      //if token exists in localStorage then use auth to verify token and get user info
-      const userRes = await axios.get(
-        `${process.env.REACT_APP_base_url}/api/users`,
-        {
-          headers: { "x-auth-token": token },
-        }
-      );
+        console.log(userRes);
+        //set the global state with user info
+        console.log(userData);
+        setUserData({
+          token,
+          user: {
+            id: userRes.data.data.user_id,
+            display_name: userRes.data.data.user_name,
+          },
+        });
+        setIsLoggedInChecked(true);
+      }
+    };
 
-console.log(userRes);
-      //set the global state with user info
-      console.log(userData);
-      setUserData({
-        token,
-        user: {
-          id: userRes.data.data.user_id,
-          display_name: userRes.data.data.user_name,
-        },
-      });
-       setIsLoggedInChecked(true);
-    }
-  };
-
-
-
-      // For example, if the user is logged in, update the state accordingly
-      // setIsLoggedInChecked(true);
-    
+    // For example, if the user is logged in, update the state accordingly
+    // setIsLoggedInChecked(true);
 
     // Only call checkLoggedIn if it hasn't been executed yet
     if (!isLoggedInChecked) {
       checkLoggedIn();
     }
+    // eslint-disable-next-line
   }, [isLoggedInChecked]); 
 
 
   const logout = () => {
     //set global state to undefined will logout the user
     setUserData({
+      // eslint-disable-next-line
       token: undefined,
       user: undefined,
     });

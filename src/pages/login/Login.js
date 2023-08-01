@@ -1,6 +1,6 @@
 // importing libraries
 import axios from "axios";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext,  useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
 import "../login/login.css";
@@ -10,6 +10,7 @@ import hideicon from "../login/hide.png";
 import viewicon from "../login/view.png";
 
 const Login = () => {
+  // eslint-disable-next-line
   const [userData, setUserData] = useContext(UserContext);
   const [form, setForm] = useState({});
   const [showPassword, setShowPassword] = useState(false);

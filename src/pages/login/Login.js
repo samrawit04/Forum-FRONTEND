@@ -31,8 +31,10 @@ const Login = () => {
   };
 
 useEffect(()=>{
-  navigate("/login");
-},[navigate])
+if(!userData.user)
+ {console.log("/login")
+  navigate("/login");}
+},[userData,navigate])
 
 
   //handle submit function to log in to an account

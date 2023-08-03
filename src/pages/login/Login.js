@@ -1,6 +1,6 @@
 // importing libraries
 import axios from "axios";
-import React, { useContext,  useState } from "react";
+import React, { useContext,  useEffect,  useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
 import "../login/login.css";
@@ -29,6 +29,11 @@ const Login = () => {
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
+
+useEffect(()=>{
+  navigate("/Login");
+},[navigate])
+
 
   //handle submit function to log in to an account
   const handleSubmit = async (e) => {

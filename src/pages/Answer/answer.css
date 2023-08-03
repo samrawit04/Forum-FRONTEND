@@ -55,14 +55,13 @@ body {
 }
 
 .user-ans{
- 
   display: flex;
   justify-content: left;
   margin-bottom: 50px;
 }
 
 .my-users-icon{
-   width: 70px;
+   width: 50px;
    height: 40px;
   opacity: 0.4;
 }

@@ -51,7 +51,7 @@ const Home = ({ logout }) => {
       console.log(userData.user);
       navigate("/Login");
     } else fetchQuestions();
-  }, [userData.user, navigate]);
+  }, [userData, navigate]);
 
   // function declaration that checks if token is expired
   const isTokenExpired = (token) => {

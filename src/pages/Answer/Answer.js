@@ -61,7 +61,7 @@ function Answer({ logout }) {
     answersByQuestionId();
   }, [
     question?.question_id,
-    userData.user,
+    userData,
     navigate,
     questionByPostId,
     answersByQuestionId,

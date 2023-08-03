@@ -27,6 +27,13 @@ const Question = ({ logout }) => {
     setTitle(e.target.value);
   };
 
+  //use effect that navigate to login page if the userdata is undefined else do the fetching function
+  useEffect(() => {
+    if (!userData.user) {
+      navigate("/Login");
+    }
+  }, [userData, navigate]);
+
   // function that inserts question to database
   const asking = async () => {
     try {
@@ -45,13 +52,6 @@ const Question = ({ logout }) => {
       console.log(error);
     }
   };
-
-  //use effect that navigate to login page if the userdata is undefined else do the fetching function
-  useEffect(() => {
-    if (!userData.user) {
-      navigate("/Login");
-    }
-  }, [userData.user, navigate]);
 
   return (
     <div>

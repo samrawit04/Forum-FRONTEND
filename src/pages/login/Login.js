@@ -31,7 +31,7 @@ const Login = () => {
   };
 
 useEffect(()=>{
-  navigate("/Login");
+  navigate("/login");
 },[navigate])
 
 

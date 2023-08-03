@@ -49,7 +49,7 @@ const Home = ({ logout }) => {
   useEffect(() => {
     if (!userData.user) {
       console.log(userData.user);
-      navigate("/Login");
+      navigate("/login");
     } else fetchQuestions();
   }, [userData, navigate]);
 

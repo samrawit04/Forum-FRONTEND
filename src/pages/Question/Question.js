@@ -30,7 +30,7 @@ const Question = ({ logout }) => {
   //use effect that navigate to login page if the userdata is undefined else do the fetching function
   useEffect(() => {
     if (!userData.user) {
-      navigate("/Login");
+      navigate("/login");
     }
   }, [userData, navigate]);
 

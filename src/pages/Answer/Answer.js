@@ -56,7 +56,7 @@ function Answer({ logout }) {
   //Check if the userData is defined and do the functions
 
   useEffect(() => {
-    if (!userData.user) navigate("/Login");
+    if (!userData.user) navigate("/login");
     questionByPostId();
     answersByQuestionId();
   }, [

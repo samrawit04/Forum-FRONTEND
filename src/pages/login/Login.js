@@ -32,7 +32,7 @@ const Login = () => {
 
 useEffect(()=>{
 if(!userData.user)
- {console.log("/login")
+ {console.log(userData.user)
   navigate("/login");}
 },[userData,navigate])
 

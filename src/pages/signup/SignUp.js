@@ -12,7 +12,7 @@ const SignUp = () => {
   // eslint-disable-next-line
   const [userData, setUserData] = useContext(UserContext);
   const [showPassword, setShowPassword] = useState(false);
-  const [password, setpassword] = useState("");
+  // const [password, setpassword] = useState("");
   const [form, setForm] = useState({});
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -27,7 +27,7 @@ const SignUp = () => {
   //handle change
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
-    setpassword(e.target.value);
+    // setpassword(e.target.value);
   };
 
   //handle submit  function that handle signing up
@@ -35,8 +35,8 @@ const SignUp = () => {
     e.preventDefault();
     try {
       //sending information to create user on the database
-      await axios.post(`${process.env.REACT_APP_base_url}/api/users`, form);
-
+     const response= await axios.post(`${process.env.REACT_APP_base_url}/api/users`, form);
+     console.log(response)
       //the new user log in to his account
       const Res = await axios.post(
         `${process.env.REACT_APP_base_url}/api/users/login`,
@@ -66,7 +66,8 @@ const SignUp = () => {
         setErrorMessage("An error occurred. Please try again later.");
       }
 
-      // console.log("problem " + error.response.data.msg);
+      console.log(error);
+
       return error.response.data.msg;
     }
   };
@@ -151,13 +152,14 @@ const SignUp = () => {
                     />
                   )}
                 </button>
-                {password.length < 8 && (
+                {/* {password.length < 8 && (
                   <div className="warning-message">
                     Password must be at least 8 characters !!
                   </div>
-                )}
+                )} */}
                 <div className="warning-message">{errorMessage}</div>
               </div>
+              {/* passwordinput end */}
             </div>
 
             <button className="agree">Agree and Join</button>

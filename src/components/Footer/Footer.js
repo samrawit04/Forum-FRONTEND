@@ -77,8 +77,8 @@ function Footer() {
           </div>
         </div>
         <h1 className="developedby">
-          Developed by:
-          <a href="https://samrawita.netlify.app/"> Samrawit Amare</a>
+          // Developed by:
+          // <a href="https://samrawita.netlify.app/"> Samrawit Amare</a>
         </h1>
       </footer>
     </div>

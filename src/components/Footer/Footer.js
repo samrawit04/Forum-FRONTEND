@@ -76,10 +76,7 @@ function Footer() {
             <div className="info-links">+1-202-306-2702</div>
           </div>
         </div>
-        <h1 className="developedby">
-          // Developed by:
-          // <a href="https://samrawita.netlify.app/"> Samrawit Amare</a>
-        </h1>
+      
       </footer>
     </div>
   );
